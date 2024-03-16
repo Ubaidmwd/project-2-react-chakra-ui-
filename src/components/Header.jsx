@@ -8,11 +8,13 @@ import {
   DrawerContent,
   DrawerCloseButton,
   Button,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BiMenuAltLeft } from "react-icons/bi";
 
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <Button
@@ -24,9 +26,16 @@ const Header = () => {
         w={"10"}
         h={"10"}
         borderRadius={"full"}
+        onClick={onOpen}
       >
         <BiMenuAltLeft size={"20"} />
       </Button>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };
