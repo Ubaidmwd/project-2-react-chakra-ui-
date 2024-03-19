@@ -9,6 +9,7 @@ import {
   DrawerCloseButton,
   Button,
   useDisclosure,
+  VStack,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -34,6 +35,23 @@ const Header = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
+          <DrawerHeader>Menu</DrawerHeader>
+          <DrawerBody>
+            <VStack>
+              <Button variant={"ghost"} colorScheme="purple">
+                <Link to={"/"}>Home</Link>
+              </Button>
+              <Button variant={"ghost"} colorScheme="purple">
+                <Link to={"/videos"}>Videos</Link>
+              </Button>
+              <Button variant={"ghost"} colorScheme="purple">
+                <Link to={"/videos?category=free"}>Free Videos</Link>
+              </Button>
+              <Button variant={"ghost"} colorScheme="purple">
+                <Link to={"/upload"}>Upload Videos</Link>
+              </Button>
+            </VStack>
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </>
