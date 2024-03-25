@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Videos from "./components/Videos";
 import Upload from "./components/Upload";
+import Slider from "./components/Slider";
+
 const App = () => {
   return (
     <Router>
@@ -15,6 +17,7 @@ const App = () => {
 
         <Route path="/upload" element={<Upload />} />
       </Routes>
+      <Slider />
       <Footer />
     </Router>
   );
