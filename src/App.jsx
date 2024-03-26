@@ -34,12 +34,13 @@ const App = () => {
 const SliderOrNot = () => {
   const location = useLocation();
 
-  // Check if the current location matches '/login'
-  if (location.pathname === "/login" || location.pathname === "/signup") {
-    return null; // Don't render Slider component
-  }
+  const hideSliderRoutes = ["/login", "/videos", "/upload", "/signup"];
 
-  return <Slider />; // Render Slider component for other routes
+  const isSliderHidden = hideSliderRoutes.some((path) =>
+    location.pathname.startsWith(path)
+  );
+
+  return !isSliderHidden && <Slider />;
 };
 
 export default App;
